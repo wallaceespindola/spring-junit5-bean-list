@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="electricMotor1" class="com.wtech.core.motor.ElectricMotor1"/>
+    <bean id="electricMotor2" class="com.wtech.core.motor.ElectricMotor2"/>
+
+    <bean id="engine" class="com.wtech.core.parts.Engine">
+        <constructor-arg index="0" value="v4"/>
+        <constructor-arg index="1" value="2"/>
+    </bean>
+
+    <bean id="transmission" class="com.wtech.core.parts.Transmission">
+        <constructor-arg value="sliding"/>
+    </bean>
+
+    <!--<bean id="thermicMotor" class="com.wtech.core.motor.ThermicMotor"/>-->
+    <!--<bean id="customMotor" class="com.wtech.core.motor.CustomMotor"/>-->
+
+    <!--<bean id="modelX" class="com.wtech.core.car.TeslaModelX" autowire="byType"/> it works, but with a red warning-->
+    <bean id="modelX" class="com.wtech.core.car.TeslaModelX" autowire="constructor"/>
+    <!--<bean id="crazyCar" class="com.wtech.core.car.CrazyMultiMotorCar" autowire="byType"/>-->
+</beans>
