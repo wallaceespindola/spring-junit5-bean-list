@@ -18,10 +18,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = Config.class)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {SpringBeansConfig.class })
-public class CarTest {
+class CarTest {
 
     @Test
-    public void givenPrototypeInjection_WhenObjectFactory_ThenNewInstanceReturn() {
+    void givenPrototypeInjection_WhenObjectFactory_ThenNewInstanceReturn() {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringBeansConfig.class);
         Car crazyCar = context.getBean(CrazyMultiMotorCar.class);
@@ -29,9 +29,11 @@ public class CarTest {
         ApplicationContext xmlContext = new ClassPathXmlApplicationContext("SpringBeans.xml");
         Car teslaCar = xmlContext.getBean(TeslaModelX.class);
 
+        assertThat(crazyCar).isNotNull();
+        assertThat(teslaCar).isNotNull();
         assertThat(crazyCar).isNotSameAs(teslaCar);
-        assertThat(crazyCar).hasToString("Car [CrazyMultiMotorCar] - Engine [Eng v8 vol 5] - Transmission [Trans manual]");
-        assertThat(teslaCar).hasToString("Car [TeslaModelX] - Engine [Eng v4 vol 2] - Transmission [Trans sliding]");
+        assertThat(teslaCar).hasToString("Car [TeslaModelX] - Motor [[ElectricMotor1, ElectricMotor2]] - Engine [Eng v4 vol 2] - Transmission [Trans sliding]");
+        assertThat(crazyCar).hasToString("Car [CrazyMultiMotorCar] - Motor [[CrazyMotor, CustomMotor, ThermicMotor]] - Engine [Eng v8 vol 5] - Transmission [Trans manual]");
     }
 
     @Test
@@ -45,7 +47,6 @@ public class CarTest {
         assertThat(teslaCar.getMotor()).isNotEmpty();
         assertThat(teslaCar.getMotor()).hasSize(2);
         assertThat(teslaCar.getMotor().stream().allMatch(m -> m.toString().contains("Electric"))).isTrue();
-        assertThat(teslaCar).hasToString("Car [TeslaModelX] - Engine [Eng v4 vol 2] - Transmission [Trans sliding]");
     }
 
     @Test
@@ -57,8 +58,8 @@ public class CarTest {
         assertThat(crazyCar).isNotNull();
         assertThat(crazyCar.getMotor()).isNotNull();
         assertThat(crazyCar.getMotor()).isNotEmpty();
-        assertThat(crazyCar.getMotor()).hasSize(4);
-        assertThat(crazyCar).hasToString("Car [CrazyMultiMotorCar] - Engine [Eng v8 vol 5] - Transmission [Trans manual]");
+        assertThat(crazyCar.getMotor()).hasSize(3);
+        assertThat(crazyCar.getMotor().stream().noneMatch(m -> m.toString().contains("Electric"))).isTrue();
     }
 
 }
