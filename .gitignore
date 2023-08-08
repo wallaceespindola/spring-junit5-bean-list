@@ -1,2 +1,4 @@
 # Project specific
 target
+*.iml
+/.idea/
