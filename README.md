@@ -1,10 +1,10 @@
-![Java](https://cdn.icon-icons.com/icons2/2699/PNG/512/java_logo_icon_168609.png)
+![Spring](https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/1200px-Spring_Framework_Logo_2018.svg.png)
 
-# Project Description
+# Spring project based on Java 11 and JUnit 5 archetype.
 
 ![Apache 2.0 License](https://img.shields.io/badge/License-Apache2.0-orange)
-![Java](https://img.shields.io/badge/Built_with-Java-blue)
-![Junit](https://img.shields.io/badge/Built_with-Java-purple)
+![Java11](https://img.shields.io/badge/Built_with-Java11-blue)
+![Junit5](https://img.shields.io/badge/Built_with-Junit5-purple)
 ![Spring](https://img.shields.io/badge/Powered_by-Spring-green)
 ![Maven](https://img.shields.io/badge/Powered_by-Maven-teal)
 
