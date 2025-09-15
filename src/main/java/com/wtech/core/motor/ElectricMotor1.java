@@ -1,9 +1,7 @@
 package com.wtech.core.motor;
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class ElectricMotor1 implements Motor {
+//@Component
+public class ElectricMotor1 extends AbstractMotor implements ElectricMotor {
     public void start() {
         System.out.println("Electric Motor 1 Started.");
     }

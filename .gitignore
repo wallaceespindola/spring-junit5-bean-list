@@ -1,2 +1,65 @@
 # Project specific
-target
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/
+
+# IDEs
+*.iml
+.idea/
+.vscode/
+*.ipr
+*.iws
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Others
+*.swp
+*.swo
+
+# Test output
+/test-output/
+
+# User-specific
+*.env
+
+# Spring Boot
+*.spring-boot-devtools.properties
+
+# Eclipse
+*.classpath
+*.project
+.settings/
+
+# NetBeans
+/nbproject/private/
+/build/
+/dist/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# IntelliJ
+*.iml
+.idea/
